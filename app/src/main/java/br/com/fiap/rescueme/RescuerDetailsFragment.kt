@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 
-class RescuerDetailsFragment : DialogFragment() { // Agora estende DialogFragment
+class RescuerDetailsFragment : DialogFragment() {
 
     companion object {
         const val TAG = "RescuerDetailsFragment"
@@ -23,9 +23,7 @@ class RescuerDetailsFragment : DialogFragment() { // Agora estende DialogFragmen
         }
     }
 
-    // SOBRESCREVA onCreateDialog() para criar o seu modal
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        // Inflar o layout do fragmento
         val view = LayoutInflater.from(requireContext())
             .inflate(R.layout.fragment_rescuer_details, null)
 
@@ -35,7 +33,6 @@ class RescuerDetailsFragment : DialogFragment() { // Agora estende DialogFragmen
         val tvExpectedArrivalTime: TextView = view.findViewById(R.id.tvExpectedArrivalTime)
         val tvDisasterType: TextView = view.findViewById(R.id.tvDisasterType)
 
-        // Simula dados do resgatista com base no tipo de desastre
         val rescuerName: String
         val rescuerPhone: String
         val arrivalTime: String
@@ -52,7 +49,7 @@ class RescuerDetailsFragment : DialogFragment() { // Agora estende DialogFragmen
                 rescuerPhone = "(11) 99876-1234"
                 arrivalTime = "45 minutos"
             }
-            // Adicione mais casos para outros tipos de desastre, se necessário
+
             else -> {
                 rescuerName = "Equipe de Resgate"
                 rescuerPhone = "(11) 91234-5678"
@@ -65,16 +62,11 @@ class RescuerDetailsFragment : DialogFragment() { // Agora estende DialogFragmen
         tvExpectedArrivalTime.text = "Tempo Estimado: $arrivalTime"
         tvDisasterType.text = "Tipo de Desastre: $disasterType"
 
-        // Crie e retorne um AlertDialog que usa a sua view personalizada
         return AlertDialog.Builder(requireContext())
-            .setView(view) // Define a view customizada
+            .setView(view)
             .setPositiveButton("Fechar") { dialog, _ ->
-                dialog.dismiss() // Fecha o modal
+                dialog.dismiss()
             }
             .create()
     }
-
-    // Você pode remover onCreateView e onViewCreated, pois onCreateDialog irá lidar com a inflação do layout.
-    // override fun onCreateView(...)
-    // override fun onViewCreated(...)
 }

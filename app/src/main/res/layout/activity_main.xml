@@ -5,30 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
-<!--
-    <Button
-        android:id="@+id/showAlertDialogButton"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mostrar Alerta Simples (Antigo)"
-        android:layout_marginBottom="16dp"/>
-
-    <Button
-        android:id="@+id/showCustomAlertDialogButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mostrar Alerta com Ações (Antigo)"
-        android:layout_marginBottom="16dp"/>
-        
-  -->
+        android:text="Resgate Me"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp"/>
 
     <Button
         android:id="@+id/showDisasterAlertButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mostrar Alerta de Desastre"/>
+        android:text="Mostrar Alerta de Desastre"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Abrigos Próximos"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sheltersRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"/>
 
 </LinearLayout>
